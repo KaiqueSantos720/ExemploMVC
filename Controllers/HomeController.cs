@@ -29,6 +29,21 @@ public class HomeController : Controller
         return View();
     }
 
+    public string TesteQueryString([FromQuery]string q, [FromQuery] string nome) //fromquery -> espera que o parametro venha da query na url
+    {
+        return $"chegou aqui {q} e {nome}"; 
+    }
+
+    public string TesteForm([FromForm]string nome, [FromForm]string email)
+    {
+        return $"nome: {nome} email: {email}";
+    }
+
+    public IActionResult Form()
+    {
+        return View();
+    }
+
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
     public IActionResult Error()
     {
